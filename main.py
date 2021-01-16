@@ -23,7 +23,6 @@ def main():
     for index,value in enumerate(phone):
         print("开始尝试为用户%s打卡"%(value[-4:]))
         count = 0
-        global response
         while (count <= 3):
             try:
                 campus = CampusCard(phone[index], password[index])
@@ -47,7 +46,6 @@ def main():
                     print(response.text)
                     msg =  strTime + value[-4:] + "打卡异常"
                     count = count + 1
-                    
                     if index == 0:
                         result=response
                     if count<=3:
