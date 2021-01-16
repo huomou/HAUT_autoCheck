@@ -46,7 +46,8 @@ def main():
                     print(response.text)
                     msg =  strTime + value[-4:] + "打卡异常"
                     count = count + 1
-
+                    if index == 0:
+                        result=response
                     if count<=3:
                         print('%s打卡失败，开始第%d次重试...'%(value[-4:],count))
                     time.sleep(5)
@@ -56,8 +57,7 @@ def main():
                 strTime = getNowTime()
                 msg = strTime + value[-4:] +"出现错误"
                 count = count + 1
-                if index == 0:
-                    result=response
+                
                 if count<=3:
                     print('%s打卡出错，开始第%d次重试...'%(value[-4:],count))
                 time.sleep(1)
